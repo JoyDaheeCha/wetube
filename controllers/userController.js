@@ -6,7 +6,6 @@ export const getJoin = (req, res) => {
     });
 };
 
-
 export const postJoin = (req, res) => {
     const {
         body: {
@@ -29,11 +28,16 @@ export const postJoin = (req, res) => {
     }
 };
 
+export const getLogin = (req, res) => {
+    res.render("login", {
+        pageTitle: "Login"
+    });
+};
 
+export const postLogin = (req, res) => {
+    res.redirect(routes.home);
+};
 
-export const login = (req, res) => res.render("login", {
-    pageTitle: "Login"
-});
 export const logout = (req, res) => res.render("logout", {
     pageTitle: "Logout"
 });
