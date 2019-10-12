@@ -2,7 +2,7 @@ import multer from "multer";
 import routes from "./routes";
 
 export const multerVideo = multer({
-    dest: "videos/"
+    dest: "uploads/videos/"
 });
 
 export const localsMiddleware = (req, res, next) => {
@@ -15,4 +15,4 @@ export const localsMiddleware = (req, res, next) => {
     next();
 }
 
-export const uploadVideo = multerVideo.single('videoFile');
+export const uploadVideo = multerVideo.single('fileUrl');

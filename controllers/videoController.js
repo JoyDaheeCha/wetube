@@ -12,7 +12,7 @@ export const home = async (req, res) => {
         console.log(error);
         res.render("home", {
             pageTitle: "Home",
-            videos
+            videos: []
         });
     }
 };
@@ -23,6 +23,7 @@ export const search = (req, res) => {
             term: searchingBy
         }
     } = req;
+    let videos = [];
 
     res.render("search", {
         pageTitle: "Search",
@@ -50,6 +51,7 @@ export const postUpload = async (req, res) => {
         title,
         description
     })
+    console.log(newVideo.fileUrl);
 
     res.redirect(routes.videoDetail(newVideo.id));
 };
