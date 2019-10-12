@@ -3,7 +3,10 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
     try {
-        const videos = await Video.find({});
+        const videos = await Video.find({}).sort({
+            _id: -1
+        });
+        console.log(videos);
         res.render("home", {
             pageTitle: "Home",
             videos
@@ -16,24 +19,35 @@ export const home = async (req, res) => {
     }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
     const {
         query: {
             term: searchingBy
         }
     } = req;
     let videos = [];
+    try {
+        videos = await Video.find({
+            title: {
+                $regex: searchingBy,
+                $options: "i"
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
     res.render("search", {
-        pageTitle: "Search",
+        pageTitle: `Search for ${searchingBy}`,
         searchingBy,
         videos
     });
 };
 
-export const getUpload = (req, res) => res.render("upload", {
-    pageTitle: "Upload"
-});
+export const getUpload = (req, res) =>
+    res.render("upload", {
+        pageTitle: "Upload"
+    });
 
 export const postUpload = async (req, res) => {
     const {
@@ -49,7 +63,7 @@ export const postUpload = async (req, res) => {
         fileUrl: path,
         title,
         description
-    })
+    });
     res.redirect(routes.videoDetail(newVideo.id));
 };
 
@@ -70,7 +84,6 @@ export const videoDetails = async (req, res) => {
     }
 };
 
-
 export const getEditVideo = async (req, res) => {
     const {
         params: {
@@ -87,7 +100,6 @@ export const getEditVideo = async (req, res) => {
         res.redirect(routes.home);
     }
 };
-
 
 export const postEditVideo = async (req, res) => {
     const {
