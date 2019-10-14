@@ -1,0 +1,49 @@
+.header {
+    background-color: $pink;
+    margin-bottom: 50px;
+
+    .header_wrapper {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        text-align: center;
+
+        .header__column {
+            i {
+                font-size: 50px;
+                color: white;
+            }
+
+            &:nth-child(2) {
+                input {
+                    width: 80%;
+                    padding: 5px;
+                    border-radius: 10px;
+                    border: transparent;
+                    color: $dark-brown;
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: $dark-brown;
+                    }
+                }
+            }
+
+            ul {
+                display: flex;
+                color: white;
+                font-weight: 600;
+                text-transform: uppercase;
+
+                li:not(:last-child) {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+}
