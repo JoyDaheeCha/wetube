@@ -6,7 +6,6 @@ export const home = async (req, res) => {
         const videos = await Video.find({}).sort({
             _id: -1
         });
-        console.log(videos);
         res.render("home", {
             pageTitle: "Home",
             videos
@@ -120,7 +119,6 @@ export const postEditVideo = async (req, res) => {
         });
         res.redirect(routes.videoDetail(id));
     } catch (error) {
-        console.log(error);
         res.redirect(routes.home);
     }
 };
@@ -136,7 +134,6 @@ export const deleteVideo = async (req, res) => {
             _id: id
         });
     } catch (error) {
-        console.log(error);
     }
     res.redirect(routes.home);
 };
