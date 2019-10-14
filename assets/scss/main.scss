@@ -5,9 +5,22 @@ body {
 
 body {
     background-color: $beige;
+    color: $dark-brown;
 }
 
 main {
     width: 100%;
     min-height: 80vh;
+
+    button {
+        cursor: pointer;
+    }
+
+    input {
+        min-width: 400px;
+    }
+}
+
+* {
+    outline: none;
 }

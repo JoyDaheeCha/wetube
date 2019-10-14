@@ -1,0 +1,21 @@
+.videoBlock {
+    max-width: 100%;
+
+    a {
+        text-decoration: none;
+        color: $dark-brown;
+    }
+
+    .videoBlock__thumbnail {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .videoBlock__title {
+        overflow-wrap: break-word;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+}
