@@ -1,0 +1,50 @@
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input {
+            width: 50%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border: transparent;
+            text-align: center;
+            padding: 5px 0px;
+
+            &[type=text] {
+                color: $dark-pink;
+            }
+
+            &[type=email] {
+                color: $dark-pink;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                text-align: center;
+                color: $dark-pink;
+            }
+
+            &[type=submit] {
+                background-color: $pink;
+                color: $beige;
+                font-weight: 600;
+
+                &:hover {
+                    background-color: $dark-pink;
+                    transform: translateY(3px);
+                }
+            }
+        }
+    }
+}

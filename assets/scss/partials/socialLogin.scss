@@ -1,0 +1,44 @@
+.social-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    button {
+        width: 30%;
+        padding: 5px 0px;
+        border-radius: 10px;
+        border: transparent;
+        margin-bottom: 10px;
+        color: $beige;
+        font-weight: 600;
+
+        &:hover {
+            transform: translateY(3px);
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        span {
+            margin-right: 10px;
+        }
+    }
+
+    .social-login--github {
+        background-color: #c3ded1;
+
+        &:hover {
+            background-color: #a2cca2;
+        }
+    }
+
+    .social-login--facebook {
+        background-color: #c3d1de;
+
+        &:hover {
+            background-color: #a2a2cc;
+        }
+    }
+}
