@@ -1,0 +1,17 @@
+.footer {
+    background-color: $pink;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+    align-items: center;
+
+    .footer__text{
+        text-transform: uppercase;
+    }
+
+    .footer__icon {
+        margin-bottom:5px;
+        font-size: 40px;
+    }
+}

@@ -23,25 +23,33 @@
                     padding: 5px;
                     border-radius: 10px;
                     border: transparent;
-                    color: $dark-brown;
+                    color: $dark-pink;
+
                     &:focus {
                         outline: none;
                     }
 
                     &::placeholder {
-                        color: $dark-brown;
+                        color: $dark-pink;
                     }
                 }
             }
 
             ul {
                 display: flex;
-                color: white;
                 font-weight: 600;
                 text-transform: uppercase;
 
-                li:not(:last-child) {
-                    margin-right: 15px;
+                li {
+                    a {
+                        text-decoration: none;
+                        margin-right: 15px;
+                        color: white;
+
+                        &:hover {
+                            color: $dark-pink;
+                        }
+                    }
                 }
             }
         }
