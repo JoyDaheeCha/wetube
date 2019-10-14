@@ -12,7 +12,7 @@
 
         input {
             width: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-radius: 10px;
             border: transparent;
             text-align: center;
@@ -39,6 +39,7 @@
                 background-color: $pink;
                 color: $beige;
                 font-weight: 600;
+                height: 35px;
 
                 &:hover {
                     background-color: $dark-pink;

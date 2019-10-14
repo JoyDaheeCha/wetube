@@ -5,13 +5,18 @@
     width: 100%;
 
     button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         width: 30%;
         padding: 5px 0px;
         border-radius: 10px;
         border: transparent;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         color: $beige;
         font-weight: 600;
+        height: 35px;
 
         &:hover {
             transform: translateY(3px);
@@ -23,22 +28,24 @@
 
         span {
             margin-right: 10px;
+            font-size: 20px;
         }
     }
 
     .social-login--github {
-        background-color: #c3ded1;
+        margin-top: 20px;
+        background-color: $green;
 
         &:hover {
-            background-color: #a2cca2;
+            background-color: $dark-green;
         }
     }
 
     .social-login--facebook {
-        background-color: #c3d1de;
+        background-color: $blue;
 
         &:hover {
-            background-color: #a2a2cc;
+            background-color: $dark-blue;
         }
     }
 }
