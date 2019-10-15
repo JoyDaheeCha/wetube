@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
@@ -44,7 +43,7 @@ export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
-    _json: { id, name, email, avatar_url:avatarUrl }
+    _json: { id, name, email, avatar_url: avatarUrl }
   } = profile;
 
   try {
@@ -76,19 +75,15 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const users = (req, res) =>
-  res.render("users", {
-    pageTitle: "Users"
-  });
-export const userDetail = (req, res) =>
-  res.render("userDetail", {
-    pageTitle: "Users details"
-  });
-export const editProfile = (req, res) =>
-  res.render("editProfile", {
-    pageTitle: "Edit profile"
-  });
-export const changePassword = (req, res) =>
-  res.render("changePassword", {
-    pageTitle: "Change password"
-  });
+export const me = (req, res) => {
+  res.render("userDetail", { pageTitle: "Users details", user: req.user });
+  console.log("Im me");
+};
+
+export const users = (req, res) => res.render("users", { pageTitle: "Users" });
+
+export const userDetail = (req, res) => res.render("userDetail", { pageTitle: "Users details" });
+
+export const editProfile = (req, res) => res.render("editProfile", { pageTitle: "Edit profile" });
+
+export const changePassword = (req, res) => res.render("changePassword", { pageTitle: "Change password" });
