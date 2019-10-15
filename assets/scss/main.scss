@@ -6,12 +6,12 @@ body {
 body {
     background-color: $beige;
     color: $dark-brown;
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 main {
     width: 100%;
     min-height: 80vh;
-
     button {
         cursor: pointer;
     }

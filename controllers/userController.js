@@ -106,7 +106,6 @@ export const logout = (req, res) => {
 
 export const me = (req, res) => {
   res.render("userDetail", { pageTitle: "Users details", user: req.user });
-  console.log("Im me");
 };
 
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
