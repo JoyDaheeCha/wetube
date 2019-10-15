@@ -5,12 +5,10 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
-import session from "express-session"
+import session from "express-session";
 import MongoStore from "connect-mongo";
 
-import {
-    localsMiddleware
-} from "./middlewares";
+import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
@@ -28,20 +26,22 @@ app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("static"));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use(
+  bodyParser.urlencoded({
     extended: true
-}));
+  })
+);
 app.use(logger("dev"));
 
 app.use(
-    session({
-        secret: process.env.COOKIE_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        store: new CookieStore({
-            mongooseConnection: mongoose.connection
-        })
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new CookieStore({
+      mongooseConnection: mongoose.connection
     })
+  })
 );
 
 app.use(passport.initialize());
