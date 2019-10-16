@@ -1,6 +1,7 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
+import Video from "../models/Video";
 
 export const getJoin = (req, res) => {
   res.render("join", {
@@ -104,8 +105,9 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const me = (req, res) => {
-  res.render("userDetail", { pageTitle: "Users details", user: req.user });
+export const me = async (req, res) => {
+  const user = await User.findById(req.user.id).populate("videos");
+  res.render("userDetail", { pageTitle: "Users details", user });
 };
 
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
@@ -115,7 +117,7 @@ export const userDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("videos");
     res.render("userDetail", { pageTitle: "User Detail", user });
   } catch (error) {
     res.redirect(routes.home);
@@ -142,20 +144,20 @@ export const postEditProfile = async (req, res) => {
 };
 export const getChangePassword = (req, res) => res.render("changePassword", { pageTitle: "Change password" });
 
-export const postChangePassword = async (req, res)=> {
+export const postChangePassword = async (req, res) => {
   const {
-    body : {oldPassword, newPassword, newPassword1}
+    body: { oldPassword, newPassword, newPassword1 }
   } = req;
-  try{
-    if(newPassword!==newPassword1){
+  try {
+    if (newPassword !== newPassword1) {
       res.status(400);
       res.redirect(`/users${routes.changePassword}`);
       return;
     }
     await req.user.changePassword(oldPassword, newPassword);
     res.redirect(routes.me);
-  }catch(error){
+  } catch (error) {
     res.status(400);
     res.redirect(`/users${routes.changePassword}`);
   }
-}
+};
