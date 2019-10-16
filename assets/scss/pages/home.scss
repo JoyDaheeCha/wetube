@@ -1,8 +1,7 @@
 .home-videos {
-    padding: 0px 200px;
     display: grid;
-    grid-template-columns: repeat(6, minmax(200px, 1fr));
-    grid-gap: 50px;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-gap: 25px;
 
     .videoBlock:first-child,
     .videoBlock:nth-child(2) {
