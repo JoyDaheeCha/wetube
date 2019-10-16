@@ -50,12 +50,10 @@
   }
 
   .video-list{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0px;
-    width: 100%;
+    margin: 29px 50px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    grid-gap: 10px;
     
     .videoBlock{
       margin: 0px 10px;
