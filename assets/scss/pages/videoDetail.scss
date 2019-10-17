@@ -10,23 +10,6 @@
         min-width: 500px;
 
         a {
-            button {
-                background-color: $pink;
-                text-decoration: none;
-                border-radius: 10px;
-                width: 100px;
-                border: none;
-                height: 35px;
-                color: white;
-                margin-bottom: 15px;
-
-                &:hover {
-                    background-color: $dark-pink;
-                    transform: translateY(3px);
-                }
-            }
-
-            text-decoration: none;
             color: $dark-blue;
 
         }

@@ -30,22 +30,6 @@
 
     a {
       margin-bottom: 10px;
-
-      button {
-        background-color: $pink;
-        color: $beige;
-        font-weight: 600;
-        height: 35px;
-        border-radius: 10px;
-        border: transparent;
-        padding: 0px 15px;
-
-        &:hover {
-          background-color: $dark-pink;
-          transform: translateY(3px);
-          cursor: pointer;
-        }
-      }
     }
   }
 
