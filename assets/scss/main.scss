@@ -14,6 +14,9 @@ body {
 }
 
 main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0px 10% 10px 10%;
     min-width: 100vh;
     min-height: 75vh;
@@ -33,10 +36,6 @@ main {
             transform: translateY(3px);
             cursor: pointer;
         }
-    }
-
-    input[type="text"] {
-        min-width: 400px;
     }
 }
 
