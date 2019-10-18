@@ -40,8 +40,10 @@
         }
 
         .video__comments-list {
-            div {
-                margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            li {
+                margin-bottom: 15px;
                 background-color: $blue;
                 padding: 10px;
                 border-radius: 10px;
