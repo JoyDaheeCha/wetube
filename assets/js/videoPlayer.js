@@ -1,3 +1,5 @@
+import getBlobDuration from "get-blob-duration";
+
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
 const playBtn = document.getElementById("jsPlayButton");
@@ -105,8 +107,9 @@ function getCurrentTime() {
   currentTime.innerHTML = String(currentTimeString);
 }
 
-function setTotalTime() {
-  const totalTimeString = formatData(videoPlayer.duration);
+async function setTotalTime() {
+  const duration = await getBlobDuration(videoPlayer.src);
+  const totalTimeString = formatData(duration);
   totalTime.innerHTML = String(totalTimeString);
   setInterval(getCurrentTime, 1000);
 }
@@ -130,10 +133,10 @@ function handleDrag() {
     volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
 }
+
 function init() {
   videoPlayer.volume = 0.5;
   volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
-
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumeClick);
   volumeBtn.addEventListener("mouseover", handleVolBtnHover);
