@@ -9,6 +9,13 @@ const volumeRange = document.getElementById("jsVolume");
 const currentTime = document.getElementById("jsCurrentTime");
 const totalTime = document.getElementById("jsTotalTime");
 
+const registerView = () => {
+  const videoId = window.location.href.split("/videos/")[1];
+  fetch(`/api/${videoId}/view`, {
+    method:"POSt"
+  });
+};
+
 function handlePlayClick() {
   if (videoPlayer.paused) {
     playBtn.innerHTML = '<i class="fas fa-pause"></i>';
@@ -105,6 +112,7 @@ function setTotalTime() {
 }
 
 function handleEnded() {
+  registerView();
   videoPlayer.currentTime = 0;
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }
@@ -112,19 +120,19 @@ function handleEnded() {
 function handleDrag() {
   const newVolumeVal = volumeRange.value;
   videoPlayer.volume = newVolumeVal;
-  if(newVolumeVal>0.7){
+  if (newVolumeVal > 0.7) {
     volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-  }else if (newVolumeVal>0.3){
+  } else if (newVolumeVal > 0.3) {
     volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
-  }else if (newVolumeVal>0.01){
+  } else if (newVolumeVal > 0.01) {
     volumeBtn.innerHTML = '<i class="fas fa-volume-off"></i>';
-  }else{
+  } else {
     volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
 }
 function init() {
   videoPlayer.volume = 0.5;
-  volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>'
+  volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
 
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumeClick);
