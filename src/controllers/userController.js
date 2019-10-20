@@ -1,7 +1,6 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
-import Video from "../models/Video";
 
 export const getJoin = (req, res) => {
   res.render("join", {
@@ -11,7 +10,9 @@ export const getJoin = (req, res) => {
 
 export const postJoin = async (req, res, next) => {
   const {
-    body: { name, email, password, password2 }
+    body: {
+      name, email, password, password2
+    }
   } = req;
 
   if (password !== password2) {
@@ -44,7 +45,9 @@ export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
-    _json: { id, name, email, avatar_url: avatarUrl }
+    _json: {
+      id, name, email, avatar_url: avatarUrl
+    }
   } = profile;
 
   try {

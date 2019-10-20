@@ -17,15 +17,13 @@ export const multerVideo = multer({
   })
 });
 
-//export const multerAvatar = multer({ dest: "uploads/avatars/" });
-
 export const multerAvatar = multer({
-    storage: multerS3({
-        s3,
-        acl: "public-read",
-        bucket: "wetube-joy/avatar"
-    })
-})
+  storage: multerS3({
+    s3,
+    acl: "public-read",
+    bucket: "wetube-joy/avatar"
+  })
+});
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "WeTube";
   res.locals.routes = routes;

@@ -7,6 +7,7 @@ export const home = async (req, res) => {
     const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
+    console.log("hello", error);
     res.render("home", { pageTitle: "Home", videos: [] });
   }
 };
@@ -37,11 +38,11 @@ export const search = async (req, res) => {
 export const getUpload = (req, res) => res.render("upload", { pageTitle: "Upload" });
 
 export const postUpload = async (req, res) => {
-    const {
-      body: { title, description },
-      file: { location }
-    } = req;
-    try {
+  const {
+    body: { title, description },
+    file: { location }
+  } = req;
+  try {
     const newVideo = await Video.create({
       fileUrl: location,
       title,
